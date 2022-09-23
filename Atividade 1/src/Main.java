@@ -12,12 +12,12 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Professor p1 = new Professor("Steve");
         List<Integer> opcoes = new ArrayList<>();
-        opcoes.add(6);
-        opcoes.add(5);
-        opcoes.add(4);
-        opcoes.add(3);
-        opcoes.add(2);
         opcoes.add(1);
+        opcoes.add(2);
+        opcoes.add(3);
+        opcoes.add(4);
+        opcoes.add(5);
+        opcoes.add(6);
 
         int escolha = 1;
         while (opcoes.get(escolha) != 6) {
@@ -27,9 +27,9 @@ public class Main {
             } else if (opcoes.get(escolha) == 2) {
                 matricularEstudante();
             } else if (opcoes.get(escolha) == 3) {
-                exibeCursos();
+                mostrarCursos();
             } else if (opcoes.get(escolha) == 4) {
-                exibeEstudante();
+                mostrarEstudante();
             }
         }
         System.out.println(Cursos.size());
@@ -49,13 +49,13 @@ public class Main {
             opcoes.add(Curso.getNome());
         }
         Object[] optionsArray = opcoes.toArray();
-        int opcaoSelecionada = JOptionPane.showOptionDialog(null,
+        int opcaoEscolhida = JOptionPane.showOptionDialog(null,
                 "Selecion o Curso",
                 "Cursos",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 optionsArray, null);
 
-        String nomeCursoSelecionado = opcoes.get(opcaoSelecionada);
+        String nomeCursoSelecionado = opcoes.get(opcaoEscolhida);
         String nome_do_Estudante = JOptionPane.showInputDialog("Informe o nome do Estudante");
         String email_do_Estudante = JOptionPane.showInputDialog("Informe o email do Estudante");
 
@@ -69,7 +69,7 @@ public class Main {
         }
     }
     // A partir daqui: exibição de Curso!
-    private static void exibeCursos() {
+    private static void mostrarCursos() {
         String info = "";
         for (Curso Curso : Cursos) {
             info = info + Curso.getNome() + " ch: " + Curso.getCh() + "\n";
@@ -80,16 +80,16 @@ public class Main {
         JOptionPane.showMessageDialog(null, info, "Cursos", JOptionPane.PLAIN_MESSAGE);
     }
     // A partir daqui: exibição de Estudante!
-    private static void exibeEstudante() {
+    private static void mostrarEstudante() {
     }
     // A partir daqui: exibição do Menu!
     private static int exibeMenu(List<Integer> opcoes) {
         Object[] optionsArray = opcoes.toArray();
-        int opcaoSelecionad = JOptionPane.showOptionDialog(null,
-                "1. Cadastrar Curso \n2. Cadastrar Estudante \n3. Exibir Cursos \n 4.Exibir Estudantes \n5. Certificado \n6. Encerrar",
-                "Selecione",
+        int opcaoEscolhida = JOptionPane.showOptionDialog(null,
+                "1. Cadastrar_Curso \n2. Cadastrar_Estudante \n3. mostrar_Cursos \n 4.mostrar_Estudantes \n5. Certificado \n6. Finalizar",
+                "Escolha:",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                 optionsArray, null);
-        return opcaoSelecionad;
+        return opcaoEscolhida;
     }
 }
